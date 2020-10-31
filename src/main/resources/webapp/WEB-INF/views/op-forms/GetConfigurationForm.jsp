@@ -23,6 +23,13 @@
     <%@ include file="../00-cp-multiple.jsp" %>
     <section><span>Parameters</span></section>
     <table class="userInput">
+	<tr>
+            <td>Key Type:</td>
+            <td><form:select path="keyType">
+                <form:options items="${type}" itemLabel="value"/>
+            </form:select>
+            </td>
+        </tr>
         <tr><td style="vertical-align:top"><input type="button" value="Select All" onClick="selectAll(document.getElementById('confKeyList'))"><input type="button" value="Select None" onClick="selectNone(document.getElementById('confKeyList'))">
             <div class="info"><b>Info:</b> If none selected, the charge point returns a list of <b>all</b> configuration settings.</div>
         </td>
@@ -31,6 +38,10 @@
                     <form:options items="${ocppConfKeys}" />
                 </form:select>
             </td></tr>
+	<tr>
+            <td>Custom Configuration Key:</td>
+            <td><form:input path="customConfKey"/></td>
+        </tr>
         <tr><td></td><td><div class="submit-button"><input type="submit" value="Perform"></div></td></tr>
     </table>
 </form:form>
